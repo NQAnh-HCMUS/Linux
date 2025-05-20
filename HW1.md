@@ -14,7 +14,7 @@ Complete the following tasks by using appropriate Linux commands. For each task,
 ![alt text](image-1.png)
 <ins>**Explanation**</ins>: *ls (**l**i**s**t)* displays the contents of the current directory (which does not have the Documents directory)
 
-As such, I create it using *mkdir -p ~/Documents* (**m**a**k**e **dir**ectory) (*-p* ensures no error is thrown if the directory already exists)
+As such, I create it using *mkdir -p ~/Documents* (**m**a**k**e **dir**ectory) (*-p* ensures no error is thrown if the directory already exists) and then go to the Documents directory inside your home directory using *cd ~/Documents*
 
 
 * Confirm your new location.
@@ -23,24 +23,36 @@ As such, I create it using *mkdir -p ~/Documents* (**m**a**k**e **dir**ectory) (
 
 
 > Task 2: Directory Setup 
-* Create a folder named project_logs in your current directory. 
+* Create a folder named project_logs in your current directory.
 * Inside it, create subfolders old_backup, archive, and current. Then, create a file temp.txt. 
 * Verify that they exist.
+![alt text](image-3.png)
 
 > Task 3: Log Review 
 * You received a system log file at /var/log/syslog. 
-* Display the last 10 lines and the first 5 lines of the file. 
+* Display the last 10 lines and the first 5 lines of the file.
+![alt text](image-4.png)
+
+
 * Reverse the content of the file for a quick scan. 
+![alt text](image-5.png)
+![alt text](image-6.png)
+
 
 > Task 4: Pattern Search 
 * Search for all lines that contain the word error (case-insensitive). 
 * Save only these lines to a file called errors.log. 
 * Count how many such lines exist. 
+![alt text](image-7.png)
+
 
 > Task 5: Stream Redirection 
 * Redirect the list of all files in /etc into a file named etc_list.txt without showing it on screen. 
-* Append the list of files from /bin to the same file. 
+* Append the list of files from /bin to the same file.
+![alt text](image-8.png)
 * View the result one page at a time. 
+![alt text](image-9.png)
+
 
 > Task 6: Text Processing 
 Create a file users.txt with the following content: 
