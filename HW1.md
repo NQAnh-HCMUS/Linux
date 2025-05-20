@@ -7,8 +7,20 @@ Complete the following tasks by using appropriate Linux commands. For each task,
 > Task 1: System Investigation 
 * Find out what directory you are currently in.
 ![alt text](image.png)
+<ins>**Explanation**</ins>: *pwd (**p**rint **w**orking **d**irectory)* shows full path of current directory.
+
+
 * Go to the Documents directory inside your home directory using a relative path. 
-* Confirm your new location. 
+![alt text](image-1.png)
+<ins>**Explanation**</ins>: *ls (**l**i**s**t)* displays the contents of the current directory (which does not have the Documents directory)
+
+As such, I create it using *mkdir -p ~/Documents* (**m**a**k**e **dir**ectory) (*-p* ensures no error is thrown if the directory already exists)
+
+
+* Confirm your new location.
+![alt text](image-2.png)
+<ins>**Explanation**</ins>: Again, using *pwd (**p**rint **w**orking **d**irectory)* shows full path of current directory.
+
 
 > Task 2: Directory Setup 
 * Create a folder named project_logs in your current directory. 
