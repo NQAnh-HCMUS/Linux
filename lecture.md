@@ -510,12 +510,12 @@ cp file?.txt /backup/
 
 ### Redirection
 
-❑ Redirection: Redirecting Data Streams Elsewhere
-❑ Types of Redirection:
-❑ < : input redirection (read input from a file)
-❑ > : output redirection (write output to a file, overwriting it)
-❑ >> : output redirection (append output to the end of a file)
-❑ Examples:
+- Redirection: Redirecting Data Streams Elsewhere
+- Types of Redirection:
+- < : input redirection (read input from a file)
+- > : output redirection (write output to a file, overwriting it)
+- >> : output redirection (append output to the end of a file)
+- Examples:
 ▪ ls -l / > /root/list.txt
 Lists the contents of the / directory. The output is not shown on the screen, but
 saved to the file /root/list.txt. If the file already exists, it will be overwritten.
@@ -532,12 +532,12 @@ stdin 0
 stdout 1
 stderr 2
 Pipe
-❑ Pipe: The output of one command is passed as the input to the next command,
+- Pipe: The output of one command is passed as the input to the next command,
 using the | character
-❑ Example: ls –R / | less
+- Example: ls –R / | less
 ▪ The ls -R / command lists files recursively from /, and its output is sent to less
 for paginated viewing.
-❑ Paging with more and less:
+- Paging with more and less:
 ▪ more lets you view output page by page.
 ▪ less provides more flexible navigation:
 ▪ Enter: to move down one line
@@ -545,70 +545,70 @@ for paginated viewing.
 ▪ b: to move back one page
 ▪ q: to quit
 tee
-❑ Output results both to the screen and to a file
-❑ Example:
+- Output results both to the screen and to a file
+- Example:
 ls –l /etc | tee /root/list.txt
 
 ### String functions
 
-❑ cat & tac
-❑ head & tail
-❑ nl & wc,
-❑ od & hexdump
-❑ join, sort, tr
-❑ grep
+- cat & tac
+- head & tail
+- nl & wc,
+- od & hexdump
+- join, sort, tr
+- grep
 cat & tac
-❑ cat: View file contents
-❑ Example: View the content of the file /etc/passwd
+- cat: View file contents
+- Example: View the content of the file /etc/passwd
 cat /etc/passwd
-❑ Options:
+- Options:
 ▪ -n : number all output lines
 ▪ -b : number non-blank output lines only
 ▪ -A : display all characters, including line endings
-❑ tac is the reverse of cat (displays file contents from the end
+- tac is the reverse of cat (displays file contents from the end
 to the beginning)
 head & tail
-❑ head: View the first lines of data
-❑ Examples:
+- head: View the first lines of data
+- Examples:
 ▪ View the 4 first lines of the file /etc/passwd
 head -4 /etc/passwd
 cat /etc/passwd | head -4
 ▪ View the 4 first files or directories of the directory /
 ls –l / | head -4
-❑ tail: View the last lines of data
-❑ Examples:
+- tail: View the last lines of data
+- Examples:
 ▪ View the 5 last lines of the file /etc/passwd
 tail -5 /etc/passwd
 cat /etc/passwd | tail -5
 ▪ View the contents of the file /etc/passwd starting from line 4 until the end:
 tail –lines=+4 /etc/passwd
 cat /etc/passwd | tail --lines=+4
-❑ Note: The -f option allows tail to follow and continuously display appended data, useful for
+- Note: The -f option allows tail to follow and continuously display appended data, useful for
 monitoring dynamic log files.
 wc: Lines, Words, Bytes count
-❑ Syntax: wc [option] [files]
+- Syntax: wc [option] [files]
 -l : count lines
 -c or –m : count characters
 -w : count words
-❑ Examples:
+- Examples:
 ▪ $ wc -l file1 - Counts the number of lines in file1
 ▪ $ wc file[123] - Counts lines, words, and bytes for the three
 files file1, file2, and file3.
 ▪ $ wc -c file1 - Counts the number of characters (bytes) in
 file1.
 nl : Number Lines
-❑ nl
-❑ Example:
+- nl
+- Example:
 ls –l / | nl
 View the list of files with line numbers.
 
 #### join
 
-❑ Syntax: join [
+- Syntax: join [
 options]
 file1 file2
 ▪ Options: -j field
-❑ Example:
+- Example:
 $ join file1 file2
 $ join –j 1 file1 file2
 File1: 1 one
@@ -620,7 +620,7 @@ File2: 1 11
 
 #### tr – translate text
 
-❑ Syntax: tr [options] [[string1 [string2]]
+- Syntax: tr [options] [[string1 [string2]]
 ▪ Options: –d delete characters, -s : replace repeated characters with a single instance (squeeze)
 $ cat file1 | tr a-z A-Z Convert lowercase letters to uppercase.
 $ cat file1 | tr -d a Delete all occurrences of the character a
@@ -630,30 +630,30 @@ $ cat file1 | tr -d abc Delete all occurrences of characters a, b, and c
 [:lower:] lowercase letters
 [:upper:] uppercase letters
 [:alnum:] alphanumeric characters (letters and digits)
-❑ Note: The tr command only accepts two arguments (string1 and string2).
+- Note: The tr command only accepts two arguments (string1 and string2).
 cat file.txt | tr '[:lower:]' '[:upper:]'
 cat file.txt | tr '[:upper:]' '[:lower:]'
 cat file.txt | tr -d '[:alnum:]'
 cat file.txt | tr -cd '[:alnum:]'
 cut
-❑ Syntax:
+- Syntax:
 cut -d<delimiter> -f<field_number>
-❑ Example: given a string
+- Example: given a string
 1;2;3;4;5;6
 To extract the number 5 (the 5th field):
 echo “1;2;3;4;5;6” | cut -d”;” -f5
 Cutting Strings with awk
-❑ Syntax: Print the n th field
+- Syntax: Print the n th field
 awk -F<delimiter> '{ print $n }'
-❑ By default, the delimiter is whitespace.
-❑ Example: given the input string:
+- By default, the delimiter is whitespace.
+- Example: given the input string:
 1;2;3;4;5;6
 To extract the number 5 (the 5th field):
 echo "1;2;3;4;5;6" | awk -F";" '{ print $5 }'
 
 #### grep
 
-❑ Searching Content with grep. Syntax:
+- Searching Content with grep. Syntax:
 grep [OPTION] PATTERN [FILE]
 Options:
 -i : case-insensitive search
@@ -661,7 +661,7 @@ Options:
 -r : recursively search in subdirectories
 -v : invert match (show lines that do not match)
 -w : match whole words only
-❑ Examples:
+- Examples:
 grep root /etc/passwd : search for lines containing the word root in the file
 /etc/passwd.
 ls –l /etc/ | grep conf : find files containing the string conf in the /etc directory listing.
@@ -669,35 +669,35 @@ ls –l /etc/ | grep conf : find files containing the string conf in the /etc di
 
 #### Regular Expressions for grep
 
-❑ [abc] : matches character a, b, or c
-❑ [a-h] : matches any one character from a to h
-❑ [^abc] : matches any character except a, b, or c
-❑ (ab|bc|cd) : matches ab or bc or cd
-❑ ^ : matches the start of a line
-❑ $ : matches the end of a line
-❑ . : matches any single character
+- [abc] : matches character a, b, or c
+- [a-h] : matches any one character from a to h
+- [^abc] : matches any character except a, b, or c
+- (ab|bc|cd) : matches ab or bc or cd
+- ^ : matches the start of a line
+- $ : matches the end of a line
+- . : matches any single character
 Number of occurrences:
 - * : matches the preceding element 0 or more times
 - + : matches the preceding element 1 or more times
 find – file search command
 find [path] [expression]
-❑ $ find / -name “*.txt” : find file with the .txt extension in the
+- $ find / -name “*.txt” : find file with the .txt extension in the
 directory /
-❑ $ find /usr/local -type f –print : find files only in /usr/local
-❑ $ find /usr/X11R6 -type d : find directory only in /usr/X11R6
-❑ $ find . -perm 755 -a -type f : find files with permission 755
+- $ find /usr/local -type f –print : find files only in /usr/local
+- $ find /usr/X11R6 -type d : find directory only in /usr/X11R6
+- $ find . -perm 755 -a -type f : find files with permission 755
 in the current directory
 Restart and Shutdown
-❑ Shutdown:
+- Shutdown:
 init 0
 or
 shutdown –h now
-❑ Restart:
+- Restart:
 init 6
 or
 shutdown –r now
 init modes
-❑ Syntax: init <number>
+- Syntax: init <number>
 Runlevel Name Description
 0 Shutdown Halts the system (power off). Safe to use when shutting down.
 1 Single-user
@@ -870,6 +870,68 @@ Joining Lines
 - Practice Makes Perfect
   - Try commands on a sample file to build muscle memory.
 
+## File Management
+
+### Introduction to File Permission
+
+- Linux is a multi-user operating system, so access control on the
+file system is extremely important.
+- To view the permissions associated with a specific file, you can use the command:
+
+`ls - l`
+
+### Permission Structure
+
+- The permission structure of a file in a Linux system
+For executable files
+Permission Structure
+
+![alt text](image-1.png)
+
+### Users
+
+Three Types of Users in File Permissions:
+
+- User/Owner (u): The user who owns the file (who created the file or directory). Ownership can be changed using the `chown` command.
+- Group (g): Users who are members of the group that owns the file. All users in the group have the same permissions to access the file or directory.
+- Others (o): All other users who are not the owner and not in the group.
+Example:
+ls -l example.txt
+-rw-r--r-- 1 alice developers 1234 May 18 10:00 example.txt
+-rw-r--r-- → File permissions
+alice → User/Owner (rw-: can read and modify)
+developers → Group (r--: can read only)
+Others → Anyone else on the system (r--: can read only)
+
+### Meaning of File Permissions
+
+Abbreviations: r, w, x
+
+- r = read
+- w = write
+- x = execute
+- - = no permission in that position
+- Example: r-x means the user has read and execute permissions, but no write permission.
+First Character in the Permission String
+- d → directory
+- - → regular file
+- Other special characters
+○ l → symbolic link
+○ b → block device
+○ c → character device
+Numeric Representation
+Permissions as Numbers
+- Permissions can be represented not only by the character string rwx,
+but also by numeric values (e.g., 777).
+- All access permissions are divided into three groups, corresponding to
+the three types of users.
+- Each group is represented by a single digit.
+Example: -rwxrw-r--
+- Owner: rwx → 7
+- Group: rw- → 6
+- Others: r-- → 4
+Numeric representation: 764
+Octal number
 
 
 
@@ -878,6 +940,208 @@ Joining Lines
 
 
 
+Change File Permissions with chmod
+- To change permissions on a file, use the command:
+chmod [mode] filename
+- Note: Only the superuser (administrators) or the user who owns the
+file/directory can use chmod to change its permissions.
+- The chmod command accepts both symbolic mode (e.g., rwx) and numeric
+mode (e.g., 764).
+chmod Command
+The mode in the chmod command consists of three parts:
+- The first part specifies the user group,
+- The second part is the operator,
+- The third part defines the permissions.
+Example 1
+▪ Remove the read permission of the group for the file name
+dante:
+$ ls -l dante
+-rw-r--r-- 1 user2 staff 2 Jun 11 1:44 dante
+$ chmod g-r dante
+$ ls -l dante
+-rw----r-- 1 user2 staff 2 Jun 11 1:44 dante
+Example 2
+▪ Add the execute permission for the owner, add the read
+permission for the group and others of the file dante
+$ ls -l dante
+-rw------- 1 user2 staff 2 Jun 11 1:44 dante
+$ chmod u+x,go+r dante
+$ ls -l dante
+-rwxr--r-- 1 user2 staff 2 Jun 11 1:44 dante
+
+
+
+
+
+
+
+
+
+
+
+of ⁨33⁩
+
+
+
+
+chmod Command
+The mode in the chmod command consists of three parts:
+- The first part specifies the user group,
+- The second part is the operator,
+- The third part defines the permissions.
+Example 1
+▪ Remove the read permission of the group for the file name
+dante:
+$ ls -l dante
+-rw-r--r-- 1 user2 staff 2 Jun 11 1:44 dante
+$ chmod g-r dante
+$ ls -l dante
+-rw----r-- 1 user2 staff 2 Jun 11 1:44 dante
+Example 2
+▪ Add the execute permission for the owner, add the read
+permission for the group and others of the file dante
+$ ls -l dante
+-rw------- 1 user2 staff 2 Jun 11 1:44 dante
+$ chmod u+x,go+r dante
+$ ls -l dante
+-rwxr--r-- 1 user2 staff 2 Jun 11 1:44 dante
+Example 3
+▪ Grant all users the read and write permissions (a: all user)
+$ chmod a=rw dante
+$ ls -l dante
+-rw-rw-rw- 1 user2 staff 2 Jun 11 1:44 dante
+Permissions as Numbers:
+chmod 666 dante
+The -R option can be used to set permissions recursively (for the files and
+subdirectories within a directory).
+Default permissions
+▪ The initial default permissions are the permissions that are
+automatically set for a file or directory when it is created.
+▪ The default permission for a file is 666 (rw-rw-rw-).
+▪ The default permission for a directory is 777 (rwxrwxrwx).
+umask
+- You can change the default permissions of files or directories by
+modifying the value of the umask variable.
+- The umask value consists of 4 octal digits.
+- The default umask value is 0022 or 0002.
+- umask functions like a filter.
+- When calculating the default permissions for a newly created file or
+directory, the system uses:
+- (initial default permission) AND (NOT umask).
+Example 1
+▪ Default file permission r w – r w – r w – ( 666 )
+umask of 022 – – – – w – – w – ( 022 )
+Resulting file permission r w – r – – r – – ( 644 )
+▪ Default dir permission r w x r w x r w x ( 777 )
+umask of 022 – – – – w – –w – ( 022 )
+Resulting dir permission r w x r – x r – x ( 755 )
+Example 2
+▪ Default file permission r w – r w – r w – ( 666 )
+umask of 123 – – x – w – – w x ( 123 )
+Resulting file permission r w – r – – r – – ( 644 )
+(
+not 543!)
+- Default dir permission r w x r w x r w x ( 777 )
+umask of 123 – – x – w – – w x ( 123 )
+Resulting dir permission r w – r – x r – – ( 654 )
+Change umask value
+- Read umask value:
+$ umask
+0022
+- Change umask value to 027
+$umask 027
+Update /etc/profile or /etc/bashrc, add the line:
+umask 022 #umask for all users
+Special permissions
+- Special permissions apply to executable files and shared directories:
+▪ Set User ID (SUID)
+▪ Set Group ID (SGID)
+▪ Sticky Bit
+
+
+
+
+
+
+
+
+
+Set User ID
+- Example: the passwd command, owned by root.
+▪ This command updates files such as /etc/passwd, /etc/shadow,
+etc. when changing a password.
+▪ These files can only be modified by root.
+▪ Therefore, even if execute permission is granted to other users, they
+do not have permission to change those files.
+▪ For this reason, the passwd command is set with SUID so that a
+normal user temporarily obtains root permissions when updating
+those files.
+Set User ID
+- Example: The ping command
+▪ When this command is executed, sockets and corresponding ports
+are opened to send and receive IP packets.
+▪ Regular users do not have permission to open sockets and ports.
+▪ Therefore, the ping command/file needs to have the SUID
+permission set.
+Set User ID
+When to use SUID?
+- When a program, command, or script requires root privileges to run.
+- When you want to allow execution of a command/script without using
+sudo.
+When you want to run a command/program with the permissions of its
+owner.
+Set User ID
+▪ Root and owner can set SUID using the chmod command with the value
+4000 or the character s:
+▪ Examples
+# chmod 4755 <executable_file>
+# chmod u+s <executable_file>
+Set Group ID
+▪ Similar to SUID, if a file has the SGID permission, when another user
+executes the file, they temporarily "borrow" the permissions of the group
+that owns the file.
+▪ A file with SGID set will show the character s in the group’s execute
+permission position. If the group does not have execute permission, the
+s is shown as uppercase S.
+▪ Example:
+$ ls –l /usr/bin/slocate /usr/bin/write
+-rwxr-sr–x 1 root slocate 9 Jul 2 2003 /usr/bin/slocate
+-rwxr-sr–x 1 root tty 13476 Aug 7 2003 /usr/bin/write
+Set Group ID
+▪ The root user or the file owner can set the Group ID (SGID) using the
+chmod command with the value 2000 or the string g+s:
+▪ $ chmod 2755 <executable_file>
+$ chmod g+s <executable_file>
+▪ When a directory has the Group ID set, all files created inside it
+(regardless of who creates them) inherit the group ownership of that
+directory.
+Sticky Bit Permission
+- Used to protect files in public directories. When a directory has the sticky bit
+set:
+▪ Only the owner or root can delete or rename files within the directory.
+▪ Other users can create or write files but cannot delete or rename them.
+- The sticky bit is shown as a t in the others’ execute permission. If others do
+not have execute permission, the t appears as uppercase T.
+▪ Set sticky bit:
+$ chmod 1755 <directory>
+$ ls –ld /tmp
+drwxrwxrwt 8 root root 4096 Jul 2 2003 /tmp
+chown Command
+▪ Use the chown command to change the ownership of a file or directory to a
+different user.
+▪ Examples:
+▪ Change the owner of the file data.txt to user sv:
+chown sv data.txt
+▪ Change the owner to user sv and the group to accounting:
+chown sv:accounting data.txt
+chgrp Command
+- Changing the group ownership of a file (keeping the owner
+unchanged)
+- Example:
+chgrp sv data.txt
+# Changes the group ownership of the file data.txt from any group to the
+group sv.
+Q&A
 
 
 
